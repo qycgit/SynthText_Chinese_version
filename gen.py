@@ -33,7 +33,7 @@ DATA_PATH = 'data'
 DB_FNAME = osp.join(DATA_PATH,'dset.h5')
 # url of the data (google-drive public file):
 DATA_URL = 'http://www.robots.ox.ac.uk/~ankush/data.tar.gz'
-OUT_FILE = 'results/SynthText_cartoon_viz.h5'
+OUT_FILE = 'results/SynthText.h5'
 
 def get_data():
   """
@@ -139,7 +139,7 @@ def main(viz=False):
       #  there are 2 estimates of depth (represented as 2 "channels")
       #  here we are using the second one (in some cases it might be
       #  useful to use the other one):
-      img_resize=img.resize(db['depth'][imname].shape)
+      img_resize=img.resize(db['depth'][imname].shape[1:3])
       depth = db['depth'][imname][:].T
       print 'depth shape,img shape',depth.shape,np.array(img).shape
       print 'depth info',depth
