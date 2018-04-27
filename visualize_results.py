@@ -71,5 +71,5 @@ def main(db_fname):
     db.close()
 
 if __name__=='__main__':
-    main('results/SynthText_8000.h5')
+    main('/media/chenqiyuan/OS/ocr-data/SynthText.h5')
 

@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt 
@@ -14,28 +15,29 @@ from pygame import freetype
 from PIL import Image
 import math
 from common import *
-from random import randint 
-rp_path='/home/yuz/lijiahui/syntheticdata/SynthText/data/newgroup_modify/'
-fn='/home/yuz/lijiahui/syntheticdata/SynthText/data/newsgroup/'
+from random import randint
+import codecs
+
+rp_path='/home/chenqiyuan/PycharmProjects/SynthText_Chinese_version/data/newgroup_modify/'
+fn='/home/chenqiyuan/PycharmProjects/SynthText_Chinese_version/data/newsgroup/'
 
 files= os.listdir(fn)
-files=files[0:-1]
 for filename in files:
-    print filename   
-    fc=filename#.decode('utf-8')
+    print filename
+    fc=filename
     write_path=rp_path+fc
     fc=fn+fc
     print fc
-    with open(fc,'r') as f:
-        f2=open(write_path,'w')
+    with codecs.open(fc,'r','utf-8') as f:
+        f2=codecs.open(write_path,'w', 'utf-8')
         print write_path
         for l in f.readlines():
             line=l.strip()
             #line=line.decode('utf-8')
-            print line
+            # print line
             for i in range(len(line)):
-                tl=randint(0,9)
+                tl=randint(1,5)
                 if i + tl<len(line):
                     f2.write('%s\n'%line[i:i+tl])
                 else:
-                    f2.write('%s\n'%line[i:-1])  
+                    f2.write('%s\n'%line[i:-1])

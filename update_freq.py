@@ -1,13 +1,17 @@
 from collections import Counter
 import pickle
+import os
 cnt=0
-filename ='/home/yuz/lijiahui/syntheticdata/SynthText/data/newsgroup/newsgroup.txt'
-with open(filename) as f:
-    c = Counter()
-    for x in f:
-        x=x.decode('utf-8')
-        c += Counter(x.strip())
-        cnt+=len(x.strip())
+filepath ='/home/chenqiyuan/PycharmProjects/SynthText_Chinese_version/data/newsgroup'
+files= os.listdir(filepath)
+
+for file in files:
+    with open(os.path.join(filepath,file)) as f:
+        c = Counter()
+        for x in f:
+            x=x.decode('utf-8')
+            c += Counter(x.strip())
+            cnt+=len(x.strip())
         #print c
 print cnt
 
