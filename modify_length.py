@@ -40,4 +40,4 @@ for filename in files:
                 if i + tl<len(line):
                     f2.write('%s\n'%line[i:i+tl])
                 else:
-                    f2.write('%s\n'%line[i:-1])
+                    f2.write('%s\n'%line[i:])

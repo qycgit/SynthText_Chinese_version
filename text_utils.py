@@ -98,8 +98,8 @@ class RenderFont(object):
         # the minimum number of characters that should fit in a mask
         # to define the maximum font height.
         self.min_nchar = 1
-        self.min_font_h = 16 #px : 0.6*12 ~ 7px <= actual minimum height
-        self.max_font_h = 120 #px
+        self.min_font_h = 25 #px : 0.6*12 ~ 7px <= actual minimum height
+        self.max_font_h = 35 #px
         self.p_flat = 0.10
 
         # curved baseline:
@@ -528,15 +528,10 @@ class TextSource(object):
                       'LINE':self.sample_line,
                       'PARA':self.sample_para}
         files= os.listdir(fn)
-        files=files[0:-1]
         #print files
         random.shuffle(files)
-        filecnt=10
         self.txt=[]
         for filename in files:
-            filecnt-=1
-            if filecnt==0:
-                break            
             fc=filename.decode('utf-8')
             fc=fn+fc
             print fc

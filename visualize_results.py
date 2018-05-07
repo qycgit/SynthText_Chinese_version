@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import h5py 
 from common import *
+import sys
 
 
 
@@ -71,5 +72,5 @@ def main(db_fname):
     db.close()
 
 if __name__=='__main__':
-    main('/media/chenqiyuan/OS/ocr-data/SynthText.h5')
+    main(sys.argv[1])
 
